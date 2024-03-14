@@ -1,10 +1,9 @@
 ### Ограничения
 
-```sql
 CREATE TABLE department (id serial PRYMARY KEY, department_title VARCHAR(75));
-```
 
-```sql
+---
+
 CREATE TABLE
   employee (
     id serial PRIMARY KEY,
@@ -12,9 +11,9 @@ CREATE TABLE
     start_data DATE,
     department_id INT REFERENCES department(id)
   );
-```
 
-```sql
+---
+
 INSERT INTO
   department (department_title)
 VALUES
@@ -22,9 +21,9 @@ VALUES
   ('manager'),
   ('statistic'),
   ('QA');
-```
 
-```sql
+---
+
 INSERT INTO
   employee (id, employee_name, start_data, department_id)
 VALUES
@@ -33,9 +32,9 @@ VALUES
   (003, 'Sarha', '2017-02-28', 3 ),
   (004, 'Sandra', '2003-12-12', 3),
 	(005, 'Micharl', '2003-12-11', null);
-```
 
-```sql
+---
+
 CREATE TABLE
   employee (
     id serial PRIMARY KEY,
@@ -44,9 +43,9 @@ CREATE TABLE
     age_employee SMALLINT CHECK (age_employee > 18), 
     department_id INT REFERENCES department(id)
   );
-```
 
-```sql
+---
+
 CREATE TABLE
   employee (
     id serial PRIMARY KEY,
@@ -56,9 +55,9 @@ CREATE TABLE
     department_id INT REFERENCES department(id),
     CHECK (age_employee < 90)
   );
-```
 
-```sql
+---
+
 INSERT INTO
   employee (employee_name, start_data, department_id, age_employee)
 VALUES
@@ -68,9 +67,9 @@ VALUES
   ( 'Sandra', '2003-12-12', 3, 31),
 	( 'Micharl', '2003-12-11', null, 89),
   ( 'Tom', '2004-02-21', 4, 23);
-```
+ 
+ ---
 
-```sql
 CREATE TABLE
   employee (
     id serial PRIMARY KEY,
@@ -80,9 +79,9 @@ CREATE TABLE
     department_id INT REFERENCES department(id),
     CONSTRAINT invalide_age CHECK (age_employee > 18 OR age_employee < 90) 
   );
-```
 
-```sql
+---
+
 CREATE TABLE
   employee (
     id serial PRIMARY KEY,
@@ -92,6 +91,7 @@ CREATE TABLE
     department_id INT REFERENCES department(id),
     CONSTRAINT invalide_age CHECK (age_employee > 18 AND age_employee < 90) 
   );
-```
+
+---
 
 
